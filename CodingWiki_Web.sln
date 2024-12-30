@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingWiki_Web", "CodingWiki_Web\CodingWiki_Web.csproj", "{9C18C644-6904-44DF-883B-0B2898A4BA5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingWiki_DataAccess", "CodingWiki_DataAccess\CodingWiki_DataAccess.csproj", "{F24587C6-5473-4DEB-955C-66E0EFD050A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingWiki_Models", "CodingWiki_Models\CodingWiki_Models.csproj", "{33337EE5-91D5-4DBC-9845-E3E7669A712F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingWiki_Console", "CodingWiki_Console\CodingWiki_Console.csproj", "{16AE671B-2B7C-444E-97B4-AA8337D7CEF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C18C644-6904-44DF-883B-0B2898A4BA5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C18C644-6904-44DF-883B-0B2898A4BA5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C18C644-6904-44DF-883B-0B2898A4BA5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C18C644-6904-44DF-883B-0B2898A4BA5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F24587C6-5473-4DEB-955C-66E0EFD050A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24587C6-5473-4DEB-955C-66E0EFD050A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24587C6-5473-4DEB-955C-66E0EFD050A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24587C6-5473-4DEB-955C-66E0EFD050A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33337EE5-91D5-4DBC-9845-E3E7669A712F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33337EE5-91D5-4DBC-9845-E3E7669A712F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33337EE5-91D5-4DBC-9845-E3E7669A712F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33337EE5-91D5-4DBC-9845-E3E7669A712F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16AE671B-2B7C-444E-97B4-AA8337D7CEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16AE671B-2B7C-444E-97B4-AA8337D7CEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16AE671B-2B7C-444E-97B4-AA8337D7CEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16AE671B-2B7C-444E-97B4-AA8337D7CEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
