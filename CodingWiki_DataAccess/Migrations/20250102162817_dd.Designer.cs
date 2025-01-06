@@ -4,6 +4,7 @@ using CodingWiki_DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodingWiki_DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250102162817_dd")]
+    partial class dd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,15 +67,15 @@ namespace CodingWiki_DataAccess.Migrations
                         .HasPrecision(10, 5)
                         .HasColumnType("decimal(10,5)");
 
-                    b.Property<int>("Publisher_Id")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("publisher_Id")
+                        .HasColumnType("int");
+
                     b.HasKey("BookId");
 
-                    b.HasIndex("Publisher_Id");
+                    b.HasIndex("publisher_Id");
 
                     b.ToTable("Book");
 
@@ -82,24 +85,24 @@ namespace CodingWiki_DataAccess.Migrations
                             BookId = 1,
                             ISBN = "127382",
                             Price = 123.10m,
-                            Publisher_Id = 1,
-                            Title = "MahaBharatha"
+                            Title = "MahaBharatha",
+                            publisher_Id = 1
                         },
                         new
                         {
                             BookId = 2,
                             ISBN = "127382",
                             Price = 1229.3m,
-                            Publisher_Id = 2,
-                            Title = "RamaYana"
+                            Title = "RamaYana",
+                            publisher_Id = 2
                         },
                         new
                         {
                             BookId = 3,
                             ISBN = "125",
                             Price = 875.3m,
-                            Publisher_Id = 1,
-                            Title = "Spider Fair Tales"
+                            Title = "Spider Fair Tales",
+                            publisher_Id = 1
                         });
                 });
 
@@ -346,7 +349,7 @@ namespace CodingWiki_DataAccess.Migrations
                 {
                     b.HasOne("CodingWiki_Models.Models.Publisher", "Publisher")
                         .WithMany("Books")
-                        .HasForeignKey("Publisher_Id")
+                        .HasForeignKey("publisher_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

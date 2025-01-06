@@ -8,21 +8,23 @@ using System.Threading.Tasks;
 
 namespace CodingWiki_Models.Models
 {
-    public class Book
+    public class Fluent_Book
     {
-        [Key]
+       // [Key]
         public int BookId {  get; set; }
         public string Title { get; set; }   
         public string ISBN {  get; set; }
         public decimal Price {  get; set; }
 
-        public List<BookAuthorMap> AuthorMap { get; set; }
+        public decimal DiscountedPrice {  get; set; }
 
-        public BookDetail BookDetail { get; set; }
+        public Fluent_BookDetail BookDetail { get; set; }
 
-       // [ForeignKey("Publisher")]
+        //[ForeignKey("Publisher")]
+        public int publisher_Id {  get; set; }
+        public Fluent_Publisher Publisher { get; set; }
 
-        public int Publisher_Id {  get; set; }
-        public Publisher Publisher { get; set; }
+
+        public List<Fluent_BookAuthorMap> fluent_bookAuthorMap { get; set; }
     }
 }
