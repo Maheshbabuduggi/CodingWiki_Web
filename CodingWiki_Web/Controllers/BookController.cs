@@ -16,10 +16,16 @@ namespace CodingWiki_Web.Controllers
         }
         public IActionResult Index()
         {
-            List<Book> objList = _db.Book.Include(u => u.Publisher)
-                .Include(u => u.AuthorMap).ThenInclude(u => u.Author).ToList();
+            List<Book> objList= _db.Book.Include(u=>u.Publisher).ToList();
 
-            //var obj = _db.Book;
+            //foreach (var obj in objList)
+            //{
+            //    more efficient
+            //    _db.Entry(obj).Reference(u => u.Publisher).Load();
+
+            //    least efficient
+            //    obj.Publisher = _db.Publisher.Find(obj.Publisher_Id);
+            //}
             return View(objList);
 
         }
@@ -64,6 +70,69 @@ namespace CodingWiki_Web.Controllers
                await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
 
+        }
+
+
+
+        public IActionResult Details(int? id)
+        {
+            BookDetail obj = new();
+           
+            if (id == null || id == 0)
+            {
+
+                return NotFound();
+            }
+            //obj.book=_db.Book.FirstOrDefault(u=>u.BookId == id);
+            obj = _db.BookDetail.Include(b=>b.book).FirstOrDefault(u => u.Book_Id == id);
+            if (obj == null) {
+                return NotFound();
+            }
+            return View(obj);
+
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Details(BookDetail obj)
+        {
+
+            if (obj.BookDetail_Id==0)
+            {
+
+                await _db.BookDetail.AddAsync(obj);
+
+            }
+            else
+            {
+
+                _db.BookDetail.Update(obj);
+            }
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            Book obj = new();
+            obj = _db.Book.FirstOrDefault(u => u.BookId == id);
+            if (obj == null) { return NotFound(); }
+            _db.Book.Remove(obj);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult PlayGround()
+        {
+            IEnumerable<Book> books = _db.Book;
+            var filter1 = books.Where(p => p.Price > 10);
+
+            IQueryable<Book> book=_db.Book;
+            var filter2=book.Where(p => p.Price > 10);
+           return RedirectToAction(nameof(Index));
         }
     }
 }
